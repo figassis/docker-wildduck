@@ -82,6 +82,7 @@ _wildduck_configure_imap () {
     $(printf "${_COCOF_ADD}" /port ${_IMAP_PORT}),
     $(printf "${_COCOF_ADD}" /host "\"0.0.0.0\""),
     $(printf "${_COCOF_ADD}" /secure ${_USE_SSL}),
+    $(printf "${_COCOF_ADD}" /useProxy ${_USE_PROXY}),
     $(printf "${_COCOF_ADD}" /retention ${IMAP_RETENTION}),
     $(printf "${_COCOF_ADD}" /disableSTARTTLS ${_IMAP_DISABLE_STARTTLS}),
     $(printf "${_COCOF_ADD}" /setup/hostname "\"${FQDN}\""),

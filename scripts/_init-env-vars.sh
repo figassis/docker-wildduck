@@ -40,6 +40,9 @@ init_runtime_env_variables () {
     # === General ===
     export TLS_KEY="${TLS_KEY}";
     export TLS_CERT="${TLS_CERT}";
+    export _USE_PROXY='false';
+    [ -n "${USE_PROXY}" ] && export _USE_PROXY="${USE_PROXY}";
+
     export _USE_SSL='false';
     [ -n "${TLS_KEY}" -a -n "${TLS_CERT}" ] && export _USE_SSL='true';
     _check_value 'ENABLE_STARTTLS' 'true\|false' 'false';
