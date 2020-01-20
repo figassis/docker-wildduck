@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 
 _wildduck_configure_default () {
     local COMS FPATH SECURE='false';

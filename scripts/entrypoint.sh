@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 
 source "${SCRIPTS_DIR}/00-define_variables.sh";
 source "${SCRIPTS_DIR}/_utils.sh";
