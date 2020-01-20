@@ -67,6 +67,7 @@ init_runtime_env_variables () {
     export _API_ACCESS_CONTROL_ENABLE='false';
     export _API_ACCESS_CONTROL_SECRET="$(_get_random_string)";
     [ -n "${API_TOKEN_SECRET}" ] && export _API_ACCESS_CONTROL_ENABLE='true';
+    [ -n "${API_ACCESS_CONTROL_SECRET}" ] && export _API_ACCESS_CONTROL_SECRET="${API_ACCESS_CONTROL_SECRET}";
 
     export _API_PORT=80;
     if [ "${API_USE_HTTPS}" = 'true' -a "${_USE_SSL}" = 'true' ]; then

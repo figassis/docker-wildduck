@@ -77,6 +77,16 @@ authlogExpireDays=30
 " > "${ZONEMTA_CONFIG_DIR}/plugins/wildduck.toml";
 }
 
+_zonemta_configure_remote_relay () {
+    if [ -n "$RELAY_HOST" ] && [ -n "$RELAY_PORT" ] && [ -n "$RELAY_USER" ] && [ -n "$RELAY_PASS" ]; then
+        sed -i "s/#host.*/host = '${RELAY_HOST}'/g" "${ZONEMTA_CONFIG_DIR}/zones/default.toml"
+        sed -i "s/#port.*/port = '${RELAY_PORT}'/g" "${ZONEMTA_CONFIG_DIR}/zones/default.toml"
+        sed -i "s/#user.*/user = '${RELAY_USER}'/g" "${ZONEMTA_CONFIG_DIR}/zones/default.toml"
+        sed -i "s/#pass.*/pass = '${RELAY_PASS}'/g" "${ZONEMTA_CONFIG_DIR}/zones/default.toml"
+        sed -i "s/#\[default.auth\]/\[default.auth\]/g" "${ZONEMTA_CONFIG_DIR}/zones/default.toml"
+    fi
+}
+
 
 configure_zonemta () {
     # only configure ZoneMTA if the user has not mounted his own
@@ -89,6 +99,8 @@ configure_zonemta () {
     _zonemta_configure_loop_breaker;
     _zonemta_configure_default_headers;
     _zonemta_configure_wildduck;
+    _zonemta_configure_remote_relay;
+    
     return 0;
 }
 
