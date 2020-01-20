@@ -26,7 +26,8 @@ _wildduck_configure_api () {
     local COMS FPATH;
     FPATH="${WILDDUCK_CONFIG_DIR}/api.toml";
     
-    echo $_API_ACCESS_CONTROL_SECRET;
+    set -x
+    echo "_API_ACCESS_CONTROL_SECRET (wildduck): ${_API_ACCESS_CONTROL_SECRET}";
     
     COMS="[
     $(printf "${_COCOF_ADD}" /enabled ${API_ENABLE}),
@@ -42,6 +43,10 @@ _wildduck_configure_api () {
     $(printf "${_COCOF_ADD}" /mobileconfig/displayDescription "\"${CONFIGPROFILE_DISPLAY_DESC}\""),
     $(printf "${_COCOF_ADD}" /mobileconfig/accountDescription "\"${CONFIGPROFILE_ACCOUNT_DESC}\"")
     ]";
+
+    echo "COMS:: ${COMS}";
+    set -x
+    
     cocof "${FPATH}" "${COMS}";
 }
 

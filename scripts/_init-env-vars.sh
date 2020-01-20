@@ -63,17 +63,20 @@ init_runtime_env_variables () {
 
     # === API ===
     local PROTO='http';
+
+    set -x
     _check_value 'API_ENABLE' 'true\|false' 'true';
     _check_value 'API_USE_HTTPS' 'true\|false' 'false';
     _check_value 'API_TOKEN_SECRET' '.\+' '';
+    _check_value 'API_ACCESS_CONTROL_SECRET' '.\+' '';
 
     export _API_ACCESS_CONTROL_ENABLE='false';
     export _API_ACCESS_CONTROL_SECRET="$(_get_random_string)";
     [ -n "${API_TOKEN_SECRET}" ] && export _API_ACCESS_CONTROL_ENABLE='true';
     [ -n "${API_ACCESS_CONTROL_SECRET}" ] && export _API_ACCESS_CONTROL_SECRET="${API_ACCESS_CONTROL_SECRET}";
 
-    echo $_API_ACCESS_CONTROL_SECRET;
-
+    echo "_API_ACCESS_CONTROL_SECRET (init): ${_API_ACCESS_CONTROL_SECRET}";
+    set +x
     export _API_PORT=80;
     if [ "${API_USE_HTTPS}" = 'true' -a "${_USE_SSL}" = 'true' ]; then
         PROTO="${PROTO}s";
