@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x
 
 _wildduck_configure_default () {
     local COMS FPATH SECURE='false';
@@ -27,9 +26,6 @@ _wildduck_configure_api () {
     local COMS FPATH;
     FPATH="${WILDDUCK_CONFIG_DIR}/api.toml";
     
-    set -x
-    echo "_API_ACCESS_CONTROL_SECRET (wildduck): ${_API_ACCESS_CONTROL_SECRET}";
-    
     COMS="[
     $(printf "${_COCOF_ADD}" /enabled ${API_ENABLE}),
     $(printf "${_COCOF_ADD}" /port ${_API_PORT}),
@@ -45,9 +41,6 @@ _wildduck_configure_api () {
     $(printf "${_COCOF_ADD}" /mobileconfig/accountDescription "\"${CONFIGPROFILE_ACCOUNT_DESC}\"")
     ]";
 
-    echo "COMS:: ${COMS}";
-    set -x
-    
     cocof "${FPATH}" "${COMS}";
 }
 
