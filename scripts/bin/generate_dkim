@@ -26,7 +26,7 @@ _generate_dkim_key () {
         _DKIM_PRVK_FILENAME="${DOMAIN}_${_DKIM_SELECTOR}_dkim.pem";
         _DKIM_PUBK_FILENAME="${DOMAIN}_${_DKIM_SELECTOR}_dkim.cert";
 
-        openssl genrsa -out "${_DKIM_PRVK_FILENAME}" 2048;
+        openssl genrsa -out "${_DKIM_PRVK_FILENAME}" 1024;
         chmod 400 "${_DKIM_PRVK_FILENAME}";
         openssl rsa \
             -in "${_DKIM_PRVK_FILENAME}" \
