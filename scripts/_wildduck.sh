@@ -25,7 +25,9 @@ _wildduck_configure_default () {
 _wildduck_configure_api () {
     local COMS FPATH;
     FPATH="${WILDDUCK_CONFIG_DIR}/api.toml";
-
+    
+    echo $_API_ACCESS_CONTROL_SECRET;
+    
     COMS="[
     $(printf "${_COCOF_ADD}" /enabled ${API_ENABLE}),
     $(printf "${_COCOF_ADD}" /port ${_API_PORT}),

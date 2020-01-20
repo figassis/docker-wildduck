@@ -1,3 +1,3 @@
 #!/bin/bash
-tag="0.0.3"
+tag="0.0.4"
 docker build --rm -t figassis/wildduck:$tag . && docker push figassis/wildduck:$tag
