@@ -2,7 +2,7 @@ version: "3"
 services:
     mail:
         build: .
-        image: local_wildduck:latest
+        # image: local_wildduck:latest
         ports:
             - "25:25"
             - "5438:443"
