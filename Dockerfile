@@ -1,7 +1,7 @@
 FROM astzweig/wildduck
 
-ARG WILDDUCK_GIT_REPO=https://github.com/nodemailer/wildduck.git
-ARG WILDDUCK_GIT_CID=4c1cd4210aca615e676eef766429c2bece5e18e3
+ARG WILDDUCK_GIT_REPO=https://github.com/figassis/wildduck.git
+ARG WILDDUCK_GIT_CID=5842dc7a601413fc254813b4c0905203da88c2d0
 
 ARG HARAKA_VERSION=2.8.25
 ARG HARAKA_WD_PLUGIN_GIT_REPO=https://github.com/nodemailer/haraka-plugin-wildduck.git
