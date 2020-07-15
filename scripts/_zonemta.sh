@@ -19,15 +19,13 @@ _zonemta_configure_interface () {
 
 
 _zonemta_configure_dbs () {
-    echo "# @include \"${WILDDUCK_CONFIG_DIR}/dbs.toml\"" \
-         > "${ZONEMTA_CONFIG_DIR}/dbs-production.toml";
+    echo "# @include \"${WILDDUCK_CONFIG_DIR}/dbs.toml\"" > "${ZONEMTA_CONFIG_DIR}/dbs-production.toml";
 }
 
 
 _zonemta_configure_pools () {
     echo "[[default]]
-address=\"0.0.0.0\"
-name=\"${FQDN}\"" > "${ZONEMTA_CONFIG_DIR}/pools.toml";
+address=\"0.0.0.0\"" > "${ZONEMTA_CONFIG_DIR}/pools.toml";
 }
 
 
