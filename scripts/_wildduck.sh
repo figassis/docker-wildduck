@@ -35,8 +35,8 @@ _wildduck_configure_api () {
     $(printf "${_COCOF_ADD}" /accessControl/enabled ${_API_ACCESS_CONTROL_ENABLE}),
     $(printf "${_COCOF_ADD}" /accessControl/secret "\"${_API_ACCESS_CONTROL_SECRET}\""),
     $(printf "${_COCOF_ADD}" /mobileconfig/identifier "\"${CONFIGPROFILE_ID}\""),
-    $(printf "${_COCOF_ADD}" /mobileconfig/displayName "\"${CONFIGPROFILE_DISPLAY_NAME}\""),
-    $(printf "${_COCOF_ADD}" /mobileconfig/organization "\"${CONFIGPROFILE_DISPLAY_ORGANIZATION}\""),
+    $(printf "${_COCOF_ADD}" /mobileconfig/displayName "\"${PRODUCT_NAME}\""),
+    $(printf "${_COCOF_ADD}" /mobileconfig/organization "\"${PRODUCT_NAME}\""),
     $(printf "${_COCOF_ADD}" /mobileconfig/displayDescription "\"${CONFIGPROFILE_DISPLAY_DESC}\""),
     $(printf "${_COCOF_ADD}" /mobileconfig/accountDescription "\"${CONFIGPROFILE_ACCOUNT_DESC}\"")
     ]";

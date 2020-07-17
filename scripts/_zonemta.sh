@@ -14,7 +14,10 @@ _zonemta_configure_interface () {
     ]";
 
     cocof "${FPATH}" "${COMS}";
-    echo "# @include \"${WILDDUCK_CONFIG_DIR}/tls.toml\"" >> "${FPATH}";
+
+    if ! grep -q "${WILDDUCK_CONFIG_DIR}/tls.toml" "${FPATH}"; then
+        echo "# @include \"${WILDDUCK_CONFIG_DIR}/tls.toml\"" >> "${FPATH}";
+    fi
 }
 
 
